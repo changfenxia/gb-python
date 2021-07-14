@@ -17,11 +17,11 @@ numbers_en_ru = {
   'Eight': 'Восемь' ,
   'Nine': 'Девять',
 }
-with open('numbers.txt') as numbers_eng, open('numbers-2.txt', 'wb+') as numbers_ru:
+with open('numbers.txt') as numbers_eng, open('numbers-2.txt', 'w+') as numbers_ru:
   for line in numbers_eng:
     print(line)
     num_eng = line.split()[0]
     num_ru = numbers_en_ru[num_eng]
-    new_line = f'{num_ru} {" ".join(line.split()[1:])}\n'.encode('utf-8')
+    new_line = f'{num_ru} {" ".join(line.split()[1:])}\n'
     numbers_ru.write(new_line)
 
