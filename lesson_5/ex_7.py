@@ -22,7 +22,9 @@ with open('companies.txt') as companies_file:
     companies_data[c_data[0]] = int(c_data[2]) - int(c_data[3])
 
 final_data.append(companies_data)
-final_data.append({"average_profit": int(sum(companies_data.values()) / len(companies_data))})
+positive_profit_companies = [el for el in companies_data.values() if el > 0]
+average_profit = sum(positive_profit_companies) / len(positive_profit_companies)
+final_data.append({"average_profit": average_profit})
 
 
 with open('companies_data_report.json', 'w') as report_file:
